@@ -18,7 +18,6 @@ class ImageController extends Controller
     return view(view: 'upload', data: compact('images'));
 }
 
-    // Method to handle the image upload process
     public function upload(Request $request)
     {
         //checking if the file is image or not
@@ -26,7 +25,6 @@ class ImageController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048', // assigning file type and size limit
         ]);
 
-        // Store the file in the /public/images directory
         $path = $request->file('image')->store('images', 'public');
 
         // storing the path in database
